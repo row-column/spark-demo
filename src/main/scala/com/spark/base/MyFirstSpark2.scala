@@ -1,9 +1,7 @@
 package com.spark.base
 
-import org.apache.log4j.Logger
-import org.apache.spark.{SparkContext, SparkConf}
-import org.apache.spark.SparkContext._
 import org.apache.log4j.{Level, Logger}
+import org.apache.spark.{SparkConf, SparkContext}
 
 object MyFirstSpark2 {
   def main(args: Array[String]) {
@@ -11,7 +9,7 @@ object MyFirstSpark2 {
     Logger.getLogger("org.apache.spark").setLevel(Level.WARN)
     Logger.getLogger("org.eclipse.jetty.server").setLevel(Level.OFF)
     if (args.length != 2) {
-      System.err.println("Usage:MyFirstSpark <Input> <Output>")
+      System.err.println("Usage:MyFirstSpark2 <Input> <Output>")
     }
     val conf = new SparkConf().setAppName("myFirstSpark").setMaster("local[2]")
     val sc = new SparkContext(conf)

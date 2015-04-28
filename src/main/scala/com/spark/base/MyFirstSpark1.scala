@@ -9,7 +9,7 @@ object MyFirstSpark1 {
     Logger.getLogger("org.apache.spark").setLevel(Level.WARN)
     Logger.getLogger("org.eclipse.jetty.server").setLevel(Level.OFF)
     if (args.length != 2) {
-      System.err.println("Usage:MyFirstSpark <Input> <Output>")
+      System.err.println("Usage:MyFirstSpark1 <Input> <Output>")
     }
     val conf = new SparkConf().setAppName("myFirstSpark1").setMaster("local[2]")
     val sc = new SparkContext(conf)
