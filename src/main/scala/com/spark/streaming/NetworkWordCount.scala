@@ -58,5 +58,4 @@ object NetworkWordCount {
 /**
   服务端：nc -lk 9999
   客户端：./bin/run-example org.apache.spark.streaming.examples.NetworkWordCount local[2] localhost 9999
-
  **/
