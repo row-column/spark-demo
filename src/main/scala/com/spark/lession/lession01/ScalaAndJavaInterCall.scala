@@ -1,7 +1,7 @@
-package com.spark.base
+package com.spark.lession.lession01
 
-import org.apache.log4j.{Level, Logger}
-import org.apache.spark.SparkContext
+import java.text.DateFormat._
+import java.util.{Date, Locale}
 
 /**
  * ━━━━━━神兽出没━━━━━━
@@ -23,30 +23,22 @@ import org.apache.spark.SparkContext
  * 　　　　　┃┫┫　┃┫┫
  * 　　　　　┗┻┛　┗┻┛
  * ━━━━━━感觉萌萌哒━━━━━━
- * Module Desc:FlatMap
+ * Module Desc:
  * User: wangyue
- * DateTime: 15-5-9下午8:11
+ * DateTime: 15-7-16下午2:11
  */
-object FlatMap {
+class ScalaAndJavaInterCall {
+
+}
+
+object ScalaAndJavaInterCall{
   def main(args: Array[String]) {
-    Logger.getLogger("org.apache.spark").setLevel(Level.DEBUG)
-    val sc = new SparkContext("local", "FlatMap Test")
-    val data = Array[(String, Int)](("A", 1), ("B", 2),
-      ("B", 3), ("C", 4),
-      ("C", 5), ("C", 6)
-    )
-    val pairs = sc.makeRDD(data, 3)
-    pairs.foreach(println(_))
-//    (A,1)
-//    (B,2)
-//    (B,3)
-//    (C,4)
-//    (C,5)
-//    (C,6)
-    val result = pairs.flatMap(T => (T._1 + T._2))
-
-    result.foreach(print)
-//    A1B2B3C4C5C6
-
+    //  scala调用java
+    val now = new Date
+    val df =getDateInstance(LONG, Locale.CHINESE)
+    println(df format now)
   }
+
+//  定义java调用scala方法
+  def add (x:Int,y:Int)=x+y
 }

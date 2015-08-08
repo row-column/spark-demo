@@ -1,7 +1,5 @@
 package com.spark.db
 
-import java.sql.DriverManager
-
 import org.apache.spark.SparkContext
 import org.apache.spark.rdd.JdbcRDD
 

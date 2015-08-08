@@ -1,0 +1,75 @@
+package main.scala.org.scala.lession02
+
+/**
+  * ━━━━━━神兽出没━━━━━━
+  * 　　　┏┓　　　┏┓
+  * 　　┏┛┻━━━┛┻┓
+  * 　　┃　　　　　　　┃
+  * 　　┃　　　━　　　┃
+  * 　　┃　┳┛　┗┳　┃
+  * 　　┃　　　　　　　┃
+  * 　　┃　　　┻　　　┃
+  * 　　┃　　　　　　　┃
+  * 　　┗━┓　　　┏━┛
+  * 　　　　┃　　　┃神兽保佑, 永无BUG!
+  * 　　　　 ┃　　　┃Code is far away from bug with the animal protecting
+  * 　　　　┃　　　┗━━━┓
+  * 　　　　┃　　　　　　　┣┓
+  * 　　　　┃　　　　　　　┏┛
+  * 　　　　┗┓┓┏━┳┓┏┛
+  * 　　　　　┃┫┫　┃┫┫
+  * 　　　　　┗┻┛　┗┻┛
+  * ━━━━━━感觉萌萌哒━━━━━━
+  * Module Desc:简述case class的用途
+  * User: wangyue
+  * DateTime: 15-7-22下午8:42
+  */
+
+abstract class Person
+case class Student(age:Int) extends Person
+case class Worker(age:Int,salary:Double) extends  Person
+case object Shared extends Person
+case class User(name: String, age: Int)
+object Answer1_2 {
+   def main(args: Array[String]): Unit = {
+
+     //case class/object spark传递消息或者模式匹配
+
+     //1. 传递消息
+    /** case ElectedLeader => {
+       val (storedApps, storedDrivers, storedWorkers) = persistenceEngine.readPersistedData()
+       state = if (storedApps.isEmpty && storedDrivers.isEmpty && storedWorkers.isEmpty) {
+         RecoveryState.ALIVE
+       } else {
+         RecoveryState.RECOVERING
+       }
+       logInfo("I have been elected leader! New state: " + state)
+       if (state == RecoveryState.RECOVERING) {
+         beginRecovery(storedApps, storedDrivers, storedWorkers)
+         recoveryCompletionTask = context.system.scheduler.scheduleOnce(WORKER_TIMEOUT millis, self,
+           CompleteRecovery)
+       }
+     } **/
+
+     //2.模式匹配
+
+     def caseOps(person:Person) = person match {
+       case Student(age) => println("I am " + age + " years old")
+       case Worker(_,salary) => println("salary is " +salary)
+       case Shared => println("share to everyone ")
+     }
+     caseOps(Student(19)) //I am 19 years old
+     caseOps(Worker(20,100)) //salary is 100.0
+     caseOps(Shared) //share to everyone
+
+     // spark sql case class 使用
+
+     // Create an RDD of User objects and register it as a table.
+     //val people = sc.textFile("examples/src/main/resources/people.txt").map(_.split(",")).map(p => Person(p(0), p(1).trim.toInt)).toDF()
+     //people.registerTempTable("user")
+     // val teenagers = sqlContext.sql("SELECT name, age FROM user WHERE age >= 13 AND age <= 19")
+
+
+   }
+
+ }

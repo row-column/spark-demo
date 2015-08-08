@@ -48,7 +48,6 @@ object SparkOptMysqlWithDataFrame {
     val df = sqlContext.createDataFrame(data, schema)
     //df.createJDBCTable(url, "t_user_new", false)//table是表的名字，最后一个参数是如果表存在是否删除表的意思，false代表不删除。
     df.insertIntoJDBC(url, "t_user_new", false)  //调用该函数必须保证表事先存在，它只用于插入数据, 前面两个参数和createJDBCTable一致，第三个参数如果设置为true，则在插入数据之前会调用mysql的TRUNCATE TABLE语句先清掉表中的数据。
-
     sc.stop
   }
 

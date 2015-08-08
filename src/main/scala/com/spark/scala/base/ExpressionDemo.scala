@@ -1,7 +1,4 @@
-package com.spark.base
-
-import org.apache.log4j.{Level, Logger}
-import org.apache.spark.SparkContext
+package com.spark.scala.base
 
 /**
  * ━━━━━━神兽出没━━━━━━
@@ -15,7 +12,7 @@ import org.apache.spark.SparkContext
  * 　　┃　　　　　　　┃
  * 　　┗━┓　　　┏━┛
  * 　　　　┃　　　┃神兽保佑, 永无BUG!
- * 　　　　 ┃　　　┃Code is far away from bug with the animal protecting
+ * 　　　　┃　　　┃Code is far away from bug with the animal protecting
  * 　　　　┃　　　┗━━━┓
  * 　　　　┃　　　　　　　┣┓
  * 　　　　┃　　　　　　　┏┛
@@ -23,30 +20,36 @@ import org.apache.spark.SparkContext
  * 　　　　　┃┫┫　┃┫┫
  * 　　　　　┗┻┛　┗┻┛
  * ━━━━━━感觉萌萌哒━━━━━━
- * Module Desc:FlatMap
- * User: wangyue
- * DateTime: 15-5-9下午8:11
+ * Module Desc:study-scala
+ * User: wangyue-ds6 || stark_summer@qq.com
+ * Date: 2015/1/9
+ * Time: 18:03
  */
-object FlatMap {
+class ExpressionDemo {
+
+}
+object ExpressionDemo{
   def main(args: Array[String]) {
-    Logger.getLogger("org.apache.spark").setLevel(Level.DEBUG)
-    val sc = new SparkContext("local", "FlatMap Test")
-    val data = Array[(String, Int)](("A", 1), ("B", 2),
-      ("B", 3), ("C", 4),
-      ("C", 5), ("C", 6)
-    )
-    val pairs = sc.makeRDD(data, 3)
-    pairs.foreach(println(_))
-//    (A,1)
-//    (B,2)
-//    (B,3)
-//    (C,4)
-//    (C,5)
-//    (C,6)
-    val result = pairs.flatMap(T => (T._1 + T._2))
+    val isStop = 1;
+    val result = if(1==isStop) true else false
+    println("result = " + result)
 
-    result.foreach(print)
-//    A1B2B3C4C5C6
+    var (n,m) = (100,0)
+    while(n > 0){
+      m = m + n
+      n = n -1
+    }
+    println("m = " + m)
 
+    for(i <- 1 to 10){ // 1 to 10
+      print(i+" ")
+    }
+    println()
+    for(i <- 1 until 10){// 1 until 10
+      print(i+" ")
+    }
+    for(i <- 1 to 100 if i%2 == 0){ // 1 to 100
+      print(i+" ")
+    }
   }
 }

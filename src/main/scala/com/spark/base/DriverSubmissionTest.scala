@@ -1,8 +1,5 @@
 package com.spark.base
 
-import org.apache.log4j.{Level, Logger}
-import org.apache.spark.SparkContext
-
 /**
  * ━━━━━━神兽出没━━━━━━
  * 　　　┏┓　　　┏┓
@@ -23,30 +20,35 @@ import org.apache.spark.SparkContext
  * 　　　　　┃┫┫　┃┫┫
  * 　　　　　┗┻┛　┗┻┛
  * ━━━━━━感觉萌萌哒━━━━━━
- * Module Desc:FlatMap
+ * Module Desc:
  * User: wangyue
- * DateTime: 15-5-9下午8:11
+ * DateTime: 15-5-15下午5:57
  */
-object FlatMap {
+
+import scala.collection.JavaConversions._
+
+/** Prints out environmental information, sleeps, and then exits. Made to
+  * test driver submission in the standalone scheduler. */
+object DriverSubmissionTest {
   def main(args: Array[String]) {
-    Logger.getLogger("org.apache.spark").setLevel(Level.DEBUG)
-    val sc = new SparkContext("local", "FlatMap Test")
-    val data = Array[(String, Int)](("A", 1), ("B", 2),
-      ("B", 3), ("C", 4),
-      ("C", 5), ("C", 6)
-    )
-    val pairs = sc.makeRDD(data, 3)
-    pairs.foreach(println(_))
-//    (A,1)
-//    (B,2)
-//    (B,3)
-//    (C,4)
-//    (C,5)
-//    (C,6)
-    val result = pairs.flatMap(T => (T._1 + T._2))
+    if (args.size < 1) {
+      println("Usage: DriverSubmissionTest <seconds-to-sleep>")
+      System.exit(0)
+    }
+    val numSecondsToSleep = args(0).toInt
 
-    result.foreach(print)
-//    A1B2B3C4C5C6
+    val env = System.getenv()
+    val properties = System.getProperties()
 
+    println("Environment variables containing SPARK_TEST:")
+    env.filter{case (k, v) => k.contains("SPARK_TEST")}.foreach(println)
+
+    println("System properties containing spark.test:")
+    properties.filter{case (k, v) => k.toString.contains("spark.test")}.foreach(println)
+
+    for (i <- 1 until numSecondsToSleep) {
+      println(s"Alive for $i out of $numSecondsToSleep seconds")
+      Thread.sleep(1000)
+    }
   }
 }
