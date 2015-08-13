@@ -11,68 +11,68 @@
     <dependencies>
         <dependency>
             <groupId>org.apache.spark</groupId>
-            <artifactId>spark-core_2.11</artifactId>
-            <version>1.4.0</version>
+            <artifactId>spark-core_2.10</artifactId>
+            <version>1.4.1</version>
         </dependency>
         <dependency>
             <groupId>org.apache.spark</groupId>
-            <artifactId>spark-network-yarn_2.11</artifactId>
-            <version>1.4.0</version>
+            <artifactId>spark-network-yarn_2.10</artifactId>
+            <version>1.4.1</version>
         </dependency>
         <dependency>
             <groupId>org.apache.spark</groupId>
-            <artifactId>spark-network-shuffle_2.11</artifactId>
-            <version>1.4.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.spark</groupId>
-            <artifactId>spark-sql_2.11</artifactId>
-            <version>1.4.0</version>
-        </dependency>
-
-
-        <dependency>
-            <groupId>org.apache.spark</groupId>
-            <artifactId>spark-graphx_2.11</artifactId>
-            <version>1.4.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.spark</groupId>
-            <artifactId>spark-repl_2.11</artifactId>
-            <version>1.4.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.spark</groupId>
-            <artifactId>spark-ganglia-lgpl_2.11</artifactId>
-            <version>1.4.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.spark</groupId>
-            <artifactId>spark-streaming-mqtt_2.11</artifactId>
-            <version>1.4.0</version>
+            <artifactId>spark-network-shuffle_2.10</artifactId>
+            <version>1.4.1</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.spark</groupId>
-            <artifactId>spark-streaming-kafka_2.11</artifactId>
-            <version>1.4.0</version>
+            <artifactId>spark-sql_2.10</artifactId>
+            <version>1.4.1</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-graphx_2.10</artifactId>
+            <version>1.4.1</version>
         </dependency>
         <dependency>
             <groupId>org.apache.spark</groupId>
-            <artifactId>spark-streaming-flume_2.11</artifactId>
-            <version>1.4.0</version>
+            <artifactId>spark-repl_2.10</artifactId>
+            <version>1.4.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-ganglia-lgpl_2.10</artifactId>
+            <version>1.4.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-streaming-mqtt_2.10</artifactId>
+            <version>1.4.1</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.spark</groupId>
-            <artifactId>spark-mllib_2.11</artifactId>
-            <version>1.4.0</version>
+            <artifactId>spark-streaming-kafka_2.10</artifactId>
+            <version>1.4.1</version>
         </dependency>
         <dependency>
             <groupId>org.apache.spark</groupId>
-            <artifactId>spark-bagel_2.11</artifactId>
-            <version>1.4.0</version>
+            <artifactId>spark-streaming-flume_2.10</artifactId>
+            <version>1.4.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-mllib_2.10</artifactId>
+            <version>1.4.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-bagel_2.10</artifactId>
+            <version>1.4.1</version>
         </dependency>
 
         <dependency>
@@ -93,11 +93,11 @@
             <version>5.1.35</version>
         </dependency>
 
-        <dependency>
+       <!-- <dependency>
             <groupId>org.apache.spark</groupId>
-            <artifactId>spark-hive_2.11</artifactId>
-            <version>1.4.0</version>
-        </dependency>
+            <artifactId>spark-hive_2.10</artifactId>
+            <version>1.4.1</version>
+        </dependency>-->
 
         <dependency>
             <groupId>io.spray</groupId>
@@ -111,8 +111,21 @@
             <version>2.3.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.xerial.snappy</groupId>
+            <artifactId>snappy-java</artifactId>
+            <version>1.1.1.4</version>
+            <type>jar</type>
+            <scope>compile</scope>
+        </dependency>
 
     </dependencies>
 
+   <!-- <repositories>
+        <repository>
+            <id>cloudera</id>
+            <url>https://repository.cloudera.com/artifactory/cloudera-repos/</url>
+        </repository>
+    </repositories>-->
 
 </project>
